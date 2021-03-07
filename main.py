@@ -57,7 +57,7 @@ def getUser():
     else:
         outputVar.set(f"Welcome {name[0]}")
 
-#changes the output label color
+#changes the output label color, don't look at this I'm stupid and this is inefficient
 def changeColor():
     color = ""
     while True:
