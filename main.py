@@ -61,48 +61,14 @@ def getUser():
 def changeColor():
     color = ""
     while True:
-        for i in range(2):
-            for j in range(16):
-                if i == 0:
-                    j = 15 - j
-                if j <= 4:
-                    continue
-                for k in range(16):
-                    if i == 0:
-                        k = 15 - k
-                    else:
-                        pass
-                    if k == 10:
-                        k = "a"
-                    elif k == 11:
-                        k = "b"
-                    elif k == 12:
-                        k = "c"
-                    elif k == 13:
-                        k = "d"
-                    elif k == 14:
-                        k = "e"
-                    elif k == 15:
-                        k = "f"
-                    if j == 10:
-                        j = "a"
-                    elif j == 11:
-                        j = "b"
-                    elif j == 12:
-                        j = "c"
-                    elif j == 13:
-                        j = "d"
-                    elif j == 14:
-                        j = "e"
-                    elif j == 15:
-                        j = "f"
+        for i in range(60, 510-60):
+            if i > 255:
+                i = 510 - i
 
-                    k = str(k)
-                    j = str(j)
-                    color = (j+k)*3
+            color = "{:0>2s}".format(str(hex(i))[2:])*3
 
-                    sleep(0.003)
-                    outputLabel.config(fg=f"#{color}", activeforeground=f"#{color}")
+            sleep(0.003)
+            outputLabel.config(fg=f"#{color}", activeforeground=f"#{color}")
 
 colorThread = threading.Thread(target=changeColor)
 
